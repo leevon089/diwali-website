@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Diwali</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #16002e, #5c092e, #b83200);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            margin-top: 100px;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 65px;
+            color: #ffd700;
+            text-shadow: 0 0 15px orange, 0 0 30px red;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px orange; }
+            to { text-shadow: 0 0 35px yellow; }
+        }
+
+        .diya {
+            font-size: 85px;
+            margin: 20px;
+            animation: flicker 1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            from { transform: scale(1); }
+            to { transform: scale(1.15); }
+        }
+
+        p {
+            font-size: 23px;
+            line-height: 1.7;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: gold;
+            color: #5c092e;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: orange;
+            transform: scale(1.1);
+        }
+
+        .footer {
+            margin-top: 50px;
+            color: #ffdd99;
+        }
+
+        .stars {
+            font-size: 25px;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            50% { opacity: 0.3; }
+        }
+
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    animation: explode 1.5s ease-out infinite;
+}
+
+@keyframes explode {
+    0% {
+        box-shadow: 0 0 gold;
+        transform: scale(0.2);
+        opacity: 1;
+    }
+
+    50% {
+        box-shadow:
+        0 -70px gold,
+        50px -50px red,
+        70px 0 yellow,
+        50px 50px orange,
+        0 70px white,
+        -50px 50px pink,
+        -70px 0 cyan,
+        -50px -50px gold;
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        box-shadow:
+        0 -100px transparent,
+        70px -70px transparent,
+        100px 0 transparent,
+        70px 70px transparent,
+        0 100px transparent,
+        -70px 70px transparent,
+        -100px 0 transparent,
+        -70px -70px transparent;
+        opacity: 0;
+    }
+}
+
+
+.music-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.75);
+    border: 2px solid gold;
+    border-radius: 15px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.music-player h3 {
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.music-player button {
+    padding: 9px 15px;
+    margin: 4px;
+    border-radius: 20px;
+    border: none;
+    background: gold;
+    color: #5c092e;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+
+<body>
+
+<div class="music-player">
+
+    <h3>🎵 Diwali Music</h3>
+
+    <audio id="diwaliMusic" loop>
+        <source src="diwali.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="playMusic()">▶ Play</button>
+
+    <button onclick="pauseMusic()">⏸ Pause</button>
+
+</div>
+
+    <div class="container">
+
+        <div class="stars">✨ ⭐ ✨ ⭐ ✨</div>
+
+        <div class="diya">🪔</div>
+
+        <h1>Happy Diwali!</h1>
+
+        <p>
+            May this Festival of Lights bring<br>
+            Happiness, Success, Peace and Prosperity<br>
+            into your life.
+        </p>
+
+        <h2>🪔 शुभ दीपावली 🪔</h2>
+
+        <a href="wishes.html">
+            <button>Go to Diwali Wishes →</button>
+        </a>
+
+        <div class="footer">
+            <p>Wishing You and Your Family a Very Happy Diwali!</p>
+            <p>Leevon chaurasia</p>
+        </div>
+
+    </div>
+
+<script>
+function createFirework() {
+    const firework = document.createElement("div");
+
+    firework.className = "firework";
+
+    firework.style.left = Math.random() * 90 + 5 + "%";
+    firework.style.top = Math.random() * 65 + 10 + "%";
+
+    firework.style.animationDelay = Math.random() * 1 + "s";
+
+    document.body.appendChild(firework);
+
+    setTimeout(function() {
+        firework.remove();
+    }, 2500);
+}
+
+setInterval(createFirework, 700);
+</script>
+
+
+<script>
+
+const music = document.getElementById("diwaliMusic");
+
+function playMusic() {
+    music.play();
+}
+
+function pauseMusic() {
+    music.pause();
+}
+
+</script>
+
+</body>
+</html>
